@@ -3,16 +3,19 @@ package com.example.myvalidationapp.presentation.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.myvalidationapp.data.RetrofitInstance
 import com.example.myvalidationapp.data.User
 import com.example.myvalidationapp.data.UserRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Response
+import javax.inject.Inject
 
-class UserViewModel : ViewModel() {
+@HiltViewModel
+class UserViewModel @Inject constructor(
 
-    private val repository =
-        UserRepository(RetrofitInstance.api)
+    private val repository: UserRepository
+
+) : ViewModel() {
 
     val createUserResponse =
         MutableLiveData<Response<User>>()

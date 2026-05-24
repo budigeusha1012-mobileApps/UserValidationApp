@@ -15,14 +15,16 @@ import com.example.myvalidationapp.databinding.FragmentFormBinding
 import androidx.navigation.fragment.findNavController
 import com.example.myvalidationapp.data.User
 import com.example.myvalidationapp.presentation.viewmodel.UserViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 
 class FormFragment : Fragment() {
 
     private var _binding: FragmentFormBinding? = null
     private val binding get() = _binding!!
     private val viewModel: UserViewModel by viewModels()
-    private lateinit var user: User
 
     private val cities = listOf(
         "Dubai",

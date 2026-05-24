@@ -1,12 +1,13 @@
 package com.example.myvalidationapp.data
 
-class UserRepository(
+import javax.inject.Inject
+
+class UserRepository @Inject constructor(
+
     private val apiService: UserApiService
 
 ) {
-    suspend fun createUser(
+    suspend fun createUser(user: User) =
 
-        user: User
-
-    ) = apiService.createUser(user)
+        apiService.createUser(user)
 }
